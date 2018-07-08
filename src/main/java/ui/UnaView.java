@@ -1,5 +1,6 @@
 package ui;
 
+import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.windows.MainWindow;
 
@@ -14,6 +15,15 @@ public class UnaView extends MainWindow<UnViewModel> {
 
   @Override
   public void createContents(Panel mainPanel) {
+	  
+	  this.setMinHeight(500);
+	  this.setMinWidth(500);
+	  this.setTitle("Lector de Notas");
+	  
+	  new Button(mainPanel)
+	  .setCaption("Salir")
+	  .onClick(this::close);
+
   }
 
   public static void main(String[] args) {
