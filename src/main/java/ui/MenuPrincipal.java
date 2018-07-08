@@ -18,7 +18,10 @@ public class MenuPrincipal extends Dialog<UnViewModel>  {
 	  @Override
 	  public void createFormPanel(Panel menu) {
 		  
-		  new Button (menu).setCaption("Ver Notas");
+		  this.setMinHeight(300);
+		  this.setMinWidth(300);
+		  
+		  new Button (menu).setCaption("Ver Notas").onClick(this::abrirPantallaNotas);
 		  new Button (menu).setCaption("Actualizar datos").onClick(this::abrirPantallaEdicion);
 		  
 	  }
@@ -26,6 +29,12 @@ public class MenuPrincipal extends Dialog<UnViewModel>  {
 	  
 		public void abrirPantallaEdicion() {
 			Dialog<?> dialog = new EditarDatosWindow(this);
+			dialog.open();
+			dialog.onAccept(() -> {});
+		}
+		
+		public void abrirPantallaNotas() {
+			Dialog<?> dialog = new NotasWindow(this);
 			dialog.open();
 			dialog.onAccept(() -> {});
 		}
