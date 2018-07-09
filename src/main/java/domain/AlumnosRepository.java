@@ -20,8 +20,8 @@ public class AlumnosRepository {
 		return this.alumnos;
 	}
 	
-//	public Alumno dameAlumnoConLegajo(int unLegajo) {
-//		return ;
-//	}
+	public Alumno dameAlumnoConLegajo(int unLegajo) {
+	return this.alumnos.stream().filter(unAlumno -> unAlumno.legajo == unLegajo).findFirst().get();
+	}
 
 }
