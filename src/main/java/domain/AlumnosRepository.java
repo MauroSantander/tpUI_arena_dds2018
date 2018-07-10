@@ -6,7 +6,7 @@ import java.util.List;
 
 public class AlumnosRepository {
 	
-	private List<Alumno> alumnos = new ArrayList<>();
+	private static List<Alumno> alumnos = new ArrayList<>();
 	static AlumnosRepository repo = null;
 	
 	public static AlumnosRepository getInstance() {
@@ -16,12 +16,16 @@ public class AlumnosRepository {
 		return repo;
 	}
 	
-	public List<Alumno> all() {
-		return this.alumnos;
+	public static List<Alumno> all() {
+		return alumnos;
 	}
 	
-	public Alumno dameAlumnoConLegajo(int unLegajo) {
-	return this.alumnos.stream().filter(unAlumno -> unAlumno.legajo == unLegajo).findFirst().get();
+	public static Alumno dameAlumnoConLegajo(int unLegajo) {
+		return alumnos.stream().filter(unAlumno -> unAlumno.legajo == unLegajo).findFirst().get();
+	}
+	
+	public static void agregar(Alumno unAlumno) {
+		alumnos.add(unAlumno);
 	}
 
 }

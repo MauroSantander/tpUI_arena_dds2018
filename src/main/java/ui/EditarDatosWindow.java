@@ -16,8 +16,8 @@ import domain.UnModel;
 public class EditarDatosWindow extends Dialog<AlumnoViewModel> {
 	
 	
-	  public EditarDatosWindow(WindowOwner owner) {
-		    super(owner, new AlumnoViewModel(new Alumno("pepe", "lalala", 123, "hola"))); // pasar el Alumno con el legajo q se pone al principio de la app
+	  public EditarDatosWindow(WindowOwner owner, AlumnoViewModel unaView) {
+		    super(owner, unaView); // pasar el Alumno con el legajo q se pone al principio de la app
 		  }
 	  
 	  
@@ -31,24 +31,24 @@ public class EditarDatosWindow extends Dialog<AlumnoViewModel> {
 		  new Label(form).setText("Apellido:");
 		  new TextBox(form)
 		  	.setWidth(250)
-		  	.bindValueToProperty("unAlumno.apellido");
+		  	.bindValueToProperty("alumnoSeleccionado.apellido");
 		  
 		  new Label(form).setText("Nombre:");
 		  new TextBox(form)
 		  	.setWidth(250)
-		  	.bindValueToProperty("unAlumno.nombre");
+		  	.bindValueToProperty("alumnoSeleccionado.nombre");
 		  
 		  new Label(form).setText("Legajo:");
 		  NumericField legajo = new NumericField(form);
-		  legajo.bindValueToProperty("unAlumno.legajo");
+		  legajo.bindValueToProperty("alumnoSeleccionado.legajo");
 		  
 		  new Label(form).setText("Usuario GitHub:");
 		  new TextBox(form)
 		  	.setWidth(250)
-		  	.bindValueToProperty("unAlumno.usuarioGitHub");
+		  	.bindValueToProperty("alumnoSeleccionado.usuarioGitHub");
 		  
 		  
-		  new Button (form).setCaption("Guardar");
+		  new Button (form).setCaption("Guardar").onClick(this::accept);
 		  new Button (form).setCaption("Cancelar").onClick(this::close);
 		  
 	  }

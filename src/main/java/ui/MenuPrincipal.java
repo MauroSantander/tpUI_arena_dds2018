@@ -6,12 +6,13 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.MainWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
+import domain.AlumnosRepository;
 import domain.UnModel;
 
-public class MenuPrincipal extends Dialog<UnViewModel>  {
+public class MenuPrincipal extends Dialog<AlumnoViewModel>  {
 	
-	  public MenuPrincipal(WindowOwner owner) {
-		    super(owner, new UnViewModel(new UnModel()));
+	  public MenuPrincipal(WindowOwner owner, AlumnoViewModel unaView) {
+		    super(owner, unaView);
 		  }
 	  
 	  
@@ -28,7 +29,7 @@ public class MenuPrincipal extends Dialog<UnViewModel>  {
 	  
 	  
 		public void abrirPantallaEdicion() {
-			Dialog<?> dialog = new EditarDatosWindow(this);
+			Dialog<?> dialog = new EditarDatosWindow(this, this.getModelObject());
 			dialog.open();
 			dialog.onAccept(() -> {});
 		}
