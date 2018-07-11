@@ -29,9 +29,8 @@ public class UnaView extends MainWindow<AlumnoViewModel> {
 
 		new Label(form).setText("Ingrese su nro. de legajo: ");
 		TextBox legajo = new TextBox(form);
-		legajo.alignRight();
 		legajo.withFilter(new LegajoFilter());
-		legajo.bindValueToProperty("legajo");
+		legajo.bindValueToProperty("inputLegajo");
 
 		new Button(form).setCaption("Ingresar").onClick(this::ingresar);
 

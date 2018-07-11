@@ -7,6 +7,7 @@ import org.uqbar.commons.model.annotations.Observable;
 
 import domain.Alumno;
 import domain.AlumnosRepository;
+import scala.Console;
 
 @Observable
 
@@ -15,13 +16,16 @@ public class AlumnoViewModel {
 	private List<Alumno> alumnos;
 	private Alumno alumnoSeleccionado;
 	private int legajo;
-
-	public int getLegajo() {
-		return legajo;
+	private String inputLegajo;
+	
+	public String getInputLegajo() {
+		return inputLegajo;
 	}
 
-	public void setLegajo(int legajo) {
-		this.legajo = legajo;
+	public void setInputLegajo(String inputLegajo) {
+		this.inputLegajo = inputLegajo;
+		this.legajo = Integer.parseInt(inputLegajo.replaceAll("-|\\.", ""));
+		Console.print((((Integer)legajo).toString()).concat("\n"));
 	}
 
 	public AlumnoViewModel() {
