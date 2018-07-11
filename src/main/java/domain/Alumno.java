@@ -12,6 +12,8 @@ public class Alumno {
 	int legajo; // seguramente cambie
 
 	public Alumno(String unNombre, String unApellido, int unLegajo, String unUsuario) {
+		if (((Integer)unLegajo).toString().length() != 7)
+			throw new LegajoInvalidoException();
 		this.nombre = unNombre;
 		this.apellido = unApellido;
 		this.legajo = unLegajo;

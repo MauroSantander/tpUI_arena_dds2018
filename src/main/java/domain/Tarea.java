@@ -1,12 +1,9 @@
 package domain;
 
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-
 import org.uqbar.commons.model.annotations.Observable;
 
-import Notas.Nota;
 
 @Observable
 public class Tarea {
