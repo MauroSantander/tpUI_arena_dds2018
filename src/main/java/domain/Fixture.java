@@ -14,7 +14,7 @@ public class Fixture {
 		AlumnosRepository.agregar(alumno2);
 		AlumnosRepository.agregar(alumno3);
 		
-		/*
+		
 		TareaConceptual tarea = new TareaConceptual("Parcial 1");
 		tarea.Calificar(alumno1, NotaConceptual.EMas);
 		tarea.Calificar(alumno2, NotaConceptual.MBMenos);
@@ -27,6 +27,6 @@ public class Fixture {
 		tarea2.Calificar(alumno2, new NotaNumerica(1));
 		tarea2.Calificar(alumno3, new NotaNumerica(10));
 		TareasRepository.getInstance().agregar(tarea2);
-		*/
+		
 	}
 }
