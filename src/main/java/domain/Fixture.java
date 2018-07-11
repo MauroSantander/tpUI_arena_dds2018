@@ -1,5 +1,8 @@
 package domain;
 
+import Notas.NotaConceptual;
+import Notas.NotaNumerica;
+
 public class Fixture {
 
 	public static void initialize() {
@@ -10,5 +13,20 @@ public class Fixture {
 		AlumnosRepository.agregar(alumno1);
 		AlumnosRepository.agregar(alumno2);
 		AlumnosRepository.agregar(alumno3);
+		
+		/*
+		TareaConceptual tarea = new TareaConceptual("Parcial 1");
+		tarea.Calificar(alumno1, NotaConceptual.EMas);
+		tarea.Calificar(alumno2, NotaConceptual.MBMenos);
+		tarea.Calificar(alumno3, NotaConceptual.B);
+		TareasRepository.getInstance().agregar(tarea);
+
+		
+		TareaNumerica tarea2 = new TareaNumerica("Parcial 2");
+		tarea2.Calificar(alumno1, new NotaNumerica(5));
+		tarea2.Calificar(alumno2, new NotaNumerica(1));
+		tarea2.Calificar(alumno3, new NotaNumerica(10));
+		TareasRepository.getInstance().agregar(tarea2);
+		*/
 	}
 }

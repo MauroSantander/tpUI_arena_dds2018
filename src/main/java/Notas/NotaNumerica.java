@@ -2,12 +2,12 @@ package Notas;
 
 import domain.RangoInvalidoDeNotaException;
 
-public class Numerica {
+public class NotaNumerica implements Nota {
 	Integer nota;
 	static int MAX = 10;
 	static int MIN = 1;
 
-	public void Numerica(int nota) {
+	public NotaNumerica(int nota) {
 		if (nota < MIN || nota > MAX)
 			throw new RangoInvalidoDeNotaException();
 		this.nota = nota;

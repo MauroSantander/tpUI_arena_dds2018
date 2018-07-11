@@ -10,12 +10,12 @@ import org.uqbar.arena.windows.MainWindow;
 import domain.Fixture;
 
 //IMPORTANTE: correr con -Djava.system.class.loader=com.uqbar.apo.APOClassLoader
-public class UnaView extends MainWindow<AlumnoViewModel> {
+public class SeleccionAlumno extends MainWindow<SeleccionAlumnoViewModel> {
 
 	private static final long serialVersionUID = 1L;
 
-	public UnaView() {
-		super(new AlumnoViewModel());
+	public SeleccionAlumno() {
+		super(new SeleccionAlumnoViewModel());
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class UnaView extends MainWindow<AlumnoViewModel> {
 
 	public static void main(String[] args) {
 		Fixture.initialize();
-		new UnaView().startApplication();
+		new SeleccionAlumno().startApplication();
 	}
 
 	public void ingresar() {

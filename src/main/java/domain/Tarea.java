@@ -7,13 +7,10 @@ import org.uqbar.commons.model.annotations.Observable;
 
 @Observable
 public class Tarea {
+	public String nombre; // Ej "Primer Parcial", "TP Arena"
+	public List<Calificacion> calificaciones = new LinkedList<Calificacion>();
 
-	String nombre; // Ej "Primer Parcial", "TP Arena"
-	Calificador calificador;
-	List<Calificacion> calificaciones = new LinkedList<Calificacion>();
-
-	public Tarea(String nombre, Calificador calificador) {
+	public Tarea(String nombre) {
 		this.nombre = nombre;
-		this.calificador = calificador;
 	}
 }

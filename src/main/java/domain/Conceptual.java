@@ -1,12 +1,12 @@
 package domain;
 
 import Notas.Nota;
-import Notas.NotaLetra;
+import Notas.NotaConceptual;
 
 public class Conceptual implements Nota {
-	NotaLetra nota;
+	NotaConceptual nota;
 
-	public Conceptual(NotaLetra nota) {
+	public Conceptual(NotaConceptual nota) {
 		this.nota = nota;
 	}
 

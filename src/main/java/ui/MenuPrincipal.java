@@ -9,9 +9,9 @@ import org.uqbar.arena.windows.WindowOwner;
 import domain.AlumnosRepository;
 import domain.UnModel;
 
-public class MenuPrincipal extends Dialog<AlumnoViewModel> {
+public class MenuPrincipal extends Dialog<SeleccionAlumnoViewModel> {
 
-	public MenuPrincipal(WindowOwner owner, AlumnoViewModel unaView) {
+	public MenuPrincipal(WindowOwner owner, SeleccionAlumnoViewModel unaView) {
 		super(owner, unaView);
 	}
 
@@ -34,7 +34,7 @@ public class MenuPrincipal extends Dialog<AlumnoViewModel> {
 	}
 
 	public void abrirPantallaNotas() {
-		Dialog<?> dialog = new NotasWindow(this);
+		Dialog<?> dialog = new NotasWindow(this, this.getModelObject());
 		dialog.open();
 		dialog.onAccept(() -> {
 		});

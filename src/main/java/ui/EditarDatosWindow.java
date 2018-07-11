@@ -13,9 +13,9 @@ import org.uqbar.arena.windows.WindowOwner;
 import domain.Alumno;
 import domain.UnModel;
 
-public class EditarDatosWindow extends Dialog<AlumnoViewModel> {
+public class EditarDatosWindow extends Dialog<SeleccionAlumnoViewModel> {
 
-	public EditarDatosWindow(WindowOwner owner, AlumnoViewModel unaView) {
+	public EditarDatosWindow(WindowOwner owner, SeleccionAlumnoViewModel unaView) {
 		super(owner, unaView); // pasar el Alumno con el legajo q se pone al principio de la app
 	}
 

@@ -7,17 +7,20 @@ import org.uqbar.commons.model.annotations.Observable;
 
 import domain.Alumno;
 import domain.AlumnosRepository;
+import domain.Calificacion;
+import domain.Tarea;
+import domain.TareasRepository;
 import scala.Console;
 
 @Observable
 
-public class AlumnoViewModel {
+public class SeleccionAlumnoViewModel {
 
 	private List<Alumno> alumnos;
 	private Alumno alumnoSeleccionado;
 	private int legajo;
 	private String inputLegajo;
-	
+	private List<Calificacion> calificaciones;
 	public String getInputLegajo() {
 		return inputLegajo;
 	}
@@ -26,8 +29,16 @@ public class AlumnoViewModel {
 		this.inputLegajo = inputLegajo;
 		this.legajo = Integer.parseInt(inputLegajo.replaceAll("-|\\.", ""));
 	}
+	
+	public void setCalificaciones(List<Calificacion> c) {
+		
+	}
+	
+	public List<Calificacion> getCalificaciones() {
+		return TareasRepository.getInstance().calificacionesDeAlumno(alumnoSeleccionado);
+	}
 
-	public AlumnoViewModel() {
+	public SeleccionAlumnoViewModel() {
 		this.alumnos = AlumnosRepository.all();
 	}
 
