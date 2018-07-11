@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 public class AlumnosRepository {
@@ -20,8 +21,8 @@ public class AlumnosRepository {
 		return alumnos;
 	}
 	
-	public static Alumno dameAlumnoConLegajo(int unLegajo) {
-		return alumnos.stream().filter(unAlumno -> unAlumno.legajo == unLegajo).findFirst().get();
+	public static Optional<Alumno> dameAlumnoConLegajo(int unLegajo) {
+		return alumnos.stream().filter(unAlumno -> unAlumno.legajo == unLegajo).findFirst();
 	}
 	
 	public static void agregar(Alumno unAlumno) {

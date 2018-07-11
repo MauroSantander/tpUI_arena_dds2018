@@ -1,6 +1,7 @@
 package ui;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.uqbar.commons.model.annotations.Observable;
 
@@ -40,7 +41,8 @@ public class AlumnoViewModel {
 	  }
 	
 	public void registrarLegajo() {
-		this.alumnoSeleccionado = AlumnosRepository.dameAlumnoConLegajo(legajo);
+		Optional<Alumno> res = AlumnosRepository.dameAlumnoConLegajo(legajo);
+		res.ifPresent(unAlumno -> this.alumnoSeleccionado = unAlumno);
 	}
 	  
 	  

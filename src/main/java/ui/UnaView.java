@@ -1,6 +1,7 @@
 package ui;
 
 import org.uqbar.arena.bindings.ObservableValue;
+import org.uqbar.arena.filters.TextFilter;
 import org.uqbar.arena.widgets.Button;
 import org.uqbar.arena.widgets.Control;
 import org.uqbar.arena.widgets.Label;
@@ -32,8 +33,9 @@ public class UnaView extends MainWindow<AlumnoViewModel> {
 	  	
 	  
 	  new Label(form).setText("Ingrese su nro. de legajo: ");
-	  NumericField legajo = new NumericField(form);
+	  TextBox legajo = new TextBox(form);
 	  legajo.alignRight();
+	  legajo.withFilter(new LegajoFilter());
 	  legajo.bindValueToProperty("legajo");
 	  
 	  new Button(form).setCaption("Ingresar").onClick(this::ingresar);
