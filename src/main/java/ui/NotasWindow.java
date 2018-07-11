@@ -24,9 +24,9 @@ public class NotasWindow extends Dialog<UnViewModel> {
 		this.setMinHeight(500);
 		this.setMinWidth(500);
 
-		Table<Tarea> notas = new Table<>(pantallaNotas, Tarea.class); //ver como darle el tamaño adecuado
-		
-		Column<Tarea> columnaTipo = new Column<Tarea>(notas);		
+		Table<Tarea> notas = new Table<>(pantallaNotas, Tarea.class); // ver como darle el tamaño adecuado
+
+		Column<Tarea> columnaTipo = new Column<Tarea>(notas);
 		columnaTipo.setTitle("Tipo");
 
 		Column<Tarea> columnaFecha = new Column<Tarea>(notas);
@@ -35,12 +35,11 @@ public class NotasWindow extends Dialog<UnViewModel> {
 		Column<Tarea> columnaCalificacion = new Column<Tarea>(notas);
 		columnaCalificacion.setTitle("Calificacion");
 
-		
 		new Button(pantallaNotas).setCaption("Salir").onClick(this::close);
 
 		notas.setHeight(400);
 		notas.setWidth(400);
-		
+
 	}
 
 }

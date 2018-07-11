@@ -10,11 +10,11 @@ import Notas.Nota;
 
 @Observable
 public class Tarea {
-	
-	String nombre; //Ej "Primer Parcial", "TP Arena"
+
+	String nombre; // Ej "Primer Parcial", "TP Arena"
 	Calificador calificador;
 	List<Calificacion> calificaciones = new LinkedList<Calificacion>();
-	
+
 	public Tarea(String nombre, Calificador calificador) {
 		this.nombre = nombre;
 		this.calificador = calificador;

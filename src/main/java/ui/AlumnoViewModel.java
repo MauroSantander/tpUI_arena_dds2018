@@ -11,12 +11,12 @@ import domain.AlumnosRepository;
 @Observable
 
 public class AlumnoViewModel {
-	
+
 	private List<Alumno> alumnos;
 	private Alumno alumnoSeleccionado;
 	private int legajo;
 
-	  public int getLegajo() {
+	public int getLegajo() {
 		return legajo;
 	}
 
@@ -25,10 +25,10 @@ public class AlumnoViewModel {
 	}
 
 	public AlumnoViewModel() {
-	    this.alumnos = AlumnosRepository.all();
-	  }
-	  
-	  public Alumno getAlumnoSeleccionado() {
+		this.alumnos = AlumnosRepository.all();
+	}
+
+	public Alumno getAlumnoSeleccionado() {
 		return alumnoSeleccionado;
 	}
 
@@ -37,13 +37,12 @@ public class AlumnoViewModel {
 	}
 
 	public List<Alumno> getAlumnos() {
-		  return alumnos;
-	  }
-	
+		return alumnos;
+	}
+
 	public void registrarLegajo() {
 		Optional<Alumno> res = AlumnosRepository.dameAlumnoConLegajo(legajo);
 		res.ifPresent(unAlumno -> this.alumnoSeleccionado = unAlumno);
 	}
-	  
-	  
+
 }
