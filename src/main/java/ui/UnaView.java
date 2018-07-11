@@ -44,8 +44,11 @@ public class UnaView extends MainWindow<AlumnoViewModel> {
 	}
 
 	public void ingresar() {
-		this.getModelObject().registrarLegajo();
-		this.abrirMenu();
+		boolean registrado = this.getModelObject().registrarLegajo();
+		if(registrado)
+			this.abrirMenu();
+		else
+			new ErrorDialog(this, this.getModelObject(), "Legajo incorrecto").open();
 	}
 
 	public void abrirMenu() {

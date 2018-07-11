@@ -25,7 +25,6 @@ public class AlumnoViewModel {
 	public void setInputLegajo(String inputLegajo) {
 		this.inputLegajo = inputLegajo;
 		this.legajo = Integer.parseInt(inputLegajo.replaceAll("-|\\.", ""));
-		Console.print((((Integer)legajo).toString()).concat("\n"));
 	}
 
 	public AlumnoViewModel() {
@@ -44,9 +43,10 @@ public class AlumnoViewModel {
 		return alumnos;
 	}
 
-	public void registrarLegajo() {
+	public boolean registrarLegajo() {
 		Optional<Alumno> res = AlumnosRepository.dameAlumnoConLegajo(legajo);
 		res.ifPresent(unAlumno -> this.alumnoSeleccionado = unAlumno);
+		return res.isPresent();
 	}
 
 }
