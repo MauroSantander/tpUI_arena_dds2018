@@ -28,5 +28,24 @@ public class Fixture {
 		tarea2.Calificar(alumno3, new NotaNumerica(10));
 		TareasRepository.getInstance().agregar(tarea2);
 		
+		TareaNumerica tarea3 = new TareaNumerica ("Parcial 3");
+		tarea3.Calificar(alumno1, new NotaNumerica(7));
+		tarea3.Calificar(alumno2, new NotaNumerica(6));
+		tarea3.Calificar(alumno3, new NotaNumerica(8));
+		TareasRepository.getInstance().agregar(tarea3);
+		
+		TareaNumerica tarea4 = new TareaNumerica ("Parcial 4");
+		tarea4.Calificar(alumno1, new NotaNumerica(7));
+		tarea4.Calificar(alumno2, new NotaNumerica(6));
+		tarea4.Calificar(alumno3, new NotaNumerica(8));
+		TareasRepository.getInstance().agregar(tarea4);
+		
+		TareaNumerica tarea5 = new TareaNumerica ("Parcial 5");
+		tarea5.Calificar(alumno1, new NotaNumerica(8));
+		tarea5.Calificar(alumno2, new NotaNumerica(10));
+		tarea5.Calificar(alumno3, new NotaNumerica(9));
+		TareasRepository.getInstance().agregar(tarea5);
+		
+		
 	}
 }

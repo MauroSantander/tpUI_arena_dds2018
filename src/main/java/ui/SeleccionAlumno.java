@@ -23,8 +23,8 @@ public class SeleccionAlumno extends MainWindow<SeleccionAlumnoViewModel> {
 
 		Panel form = new Panel(mainPanel);
 
-		this.setMinHeight(300);
-		this.setMinWidth(300);
+		//this.setMinHeight(300);
+		//this.setMinWidth(300);
 		this.setTitle("Lector de Notas");
 
 		new Label(form).setText("Ingrese su nro. de legajo: ");

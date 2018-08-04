@@ -5,6 +5,7 @@ import org.uqbar.arena.widgets.Panel;
 import org.uqbar.arena.widgets.tables.Column;
 import org.uqbar.arena.widgets.tables.Table;
 import org.uqbar.arena.windows.Dialog;
+import org.uqbar.arena.windows.Window;
 import org.uqbar.arena.windows.WindowOwner;
 
 import domain.Calificacion;
@@ -22,27 +23,25 @@ public class NotasWindow extends Dialog<SeleccionAlumnoViewModel> {
 
 		// new Label().setText(nombre Y apellido);
 
-		this.setMinHeight(500);
-		this.setMinWidth(500);
-
-		Table<Calificacion> notas = new Table<Calificacion>(pantallaNotas, Calificacion.class); // ver como darle el tama�o adecuado
+		//this.setMinHeight(400);
+		//this.setMinWidth(400); comentado para que el tamaño de la ventana se ajuste a la cantidad de columnas
+		
+		Table<Calificacion> notas = new Table<Calificacion>(pantallaNotas, Calificacion.class); // ver como darle el tamaño adecuado
+		
+		//notas.setNumberVisibleRows(2);
 
 		Column<Calificacion> columnaTipo = new Column<Calificacion>(notas);
 		columnaTipo.setTitle("Tarea");
-		columnaTipo.setFixedSize(100);
+		columnaTipo.setFixedSize(200);
 		columnaTipo.bindContentsToProperty("tarea");
 
 		Column<Calificacion> columnaNota = new Column<Calificacion>(notas);
 		columnaNota.setTitle("Nota");
-		columnaNota.setFixedSize(100);
+		columnaNota.setFixedSize(200);
 		columnaNota.bindContentsToProperty("nota");
 		
-		
 		new Button(pantallaNotas).setCaption("Salir").onClick(this::close);
-
-		notas.setHeight(400);
-		notas.setWidth(400);
-
+		
 		notas.bindItemsToProperty("calificaciones");
 	}
 

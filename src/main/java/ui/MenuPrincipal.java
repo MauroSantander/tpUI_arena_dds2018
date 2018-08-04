@@ -18,11 +18,12 @@ public class MenuPrincipal extends Dialog<SeleccionAlumnoViewModel> {
 	@Override
 	public void createFormPanel(Panel menu) {
 
-		this.setMinHeight(300);
-		this.setMinWidth(300);
+	//	this.setMinHeight(300);
+	//	this.setMinWidth(300);
 
 		new Button(menu).setCaption("Ver Notas").onClick(this::abrirPantallaNotas);
 		new Button(menu).setCaption("Actualizar datos").onClick(this::abrirPantallaEdicion);
+		new Button(menu).setCaption("Salir").onClick(this::close);
 
 	}
 
