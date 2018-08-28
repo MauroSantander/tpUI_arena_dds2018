@@ -18,30 +18,39 @@ public class EditarDatosWindow extends Dialog<SeleccionAlumnoViewModel> {
 	public EditarDatosWindow(WindowOwner owner, SeleccionAlumnoViewModel unaView) {
 		super(owner, unaView); // pasar el Alumno con el legajo q se pone al principio de la app
 	}
-
+	
+	public void escribirDatos() {
+		 this.getModelObject().guardarAlumnoEditado();
+		 this.close();		
+	}
+	
 	@Override
 	public void createFormPanel(Panel mainPanel) {
 
+		this.setTitle("Editar datos de alumno");
+		
 		Panel form = new Panel(mainPanel);
 
 		form.setLayout(new ColumnLayout(2));
 
 		new Label(form).setText("Apellido:");
-		new TextBox(form).setWidth(250).bindValueToProperty("alumnoSeleccionado.apellido");
+		new TextBox(form).setWidth(250).bindValueToProperty("alumnoEditado.apellido");
 
 		new Label(form).setText("Nombre:");
-		new TextBox(form).setWidth(250).bindValueToProperty("alumnoSeleccionado.nombre");
+		new TextBox(form).setWidth(250).bindValueToProperty("alumnoEditado.nombre");
 
 		new Label(form).setText("Legajo:");
 		NumericField legajo = new NumericField(form);
-		legajo.bindValueToProperty("alumnoSeleccionado.legajo");
+		legajo.bindValueToProperty("alumnoEditado.legajo");
 
 		new Label(form).setText("Usuario GitHub:");
-		new TextBox(form).setWidth(250).bindValueToProperty("alumnoSeleccionado.usuarioGitHub");
-
-		new Button(form).setCaption("Guardar").onClick(this::accept);
-		new Button(form).setCaption("Cancelar").onClick(this::close);
+		new TextBox(form).setWidth(250).bindValueToProperty("alumnoEditado.usuarioGitHub");
+		
+		new Button(form).setCaption("Guardar").onClick(this::escribirDatos);
+		new Button(form).setCaption("Cancelar").onClick(this::cancel);
 
 	}
+	
+	
 
 }

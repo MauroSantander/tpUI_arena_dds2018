@@ -21,14 +21,14 @@ public class NotasWindow extends Dialog<SeleccionAlumnoViewModel> {
 	@Override
 	public void createFormPanel(Panel pantallaNotas) {
 
-		// new Label().setText(nombre Y apellido);
+		this.setTitle("Notas");
 
-		//this.setMinHeight(400);
-		//this.setMinWidth(400); comentado para que el tamaño de la ventana se ajuste a la cantidad de columnas
-		
-		Table<Calificacion> notas = new Table<Calificacion>(pantallaNotas, Calificacion.class); // ver como darle el tamaño adecuado
-		
-		//notas.setNumberVisibleRows(2);
+		// this.setMinHeight(400);
+		// this.setMinWidth(400); comentado para que el tamaño de la ventana se ajuste a
+		// la cantidad de columnas
+
+		Table<Calificacion> notas = new Table<Calificacion>(pantallaNotas, Calificacion.class); // ver como darle el
+																								// tamaño adecuado
 
 		Column<Calificacion> columnaTipo = new Column<Calificacion>(notas);
 		columnaTipo.setTitle("Tarea");
@@ -39,9 +39,9 @@ public class NotasWindow extends Dialog<SeleccionAlumnoViewModel> {
 		columnaNota.setTitle("Nota");
 		columnaNota.setFixedSize(200);
 		columnaNota.bindContentsToProperty("nota");
-		
+
 		new Button(pantallaNotas).setCaption("Salir").onClick(this::close);
-		
+
 		notas.bindItemsToProperty("calificaciones");
 	}
 

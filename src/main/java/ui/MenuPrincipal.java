@@ -6,6 +6,7 @@ import org.uqbar.arena.windows.Dialog;
 import org.uqbar.arena.windows.MainWindow;
 import org.uqbar.arena.windows.WindowOwner;
 
+import domain.Alumno;
 import domain.AlumnosRepository;
 import domain.UnModel;
 
@@ -18,6 +19,7 @@ public class MenuPrincipal extends Dialog<SeleccionAlumnoViewModel> {
 	@Override
 	public void createFormPanel(Panel menu) {
 
+		this.setTitle("Menu");
 	//	this.setMinHeight(300);
 	//	this.setMinWidth(300);
 
@@ -28,6 +30,9 @@ public class MenuPrincipal extends Dialog<SeleccionAlumnoViewModel> {
 	}
 
 	public void abrirPantallaEdicion() {
+		Alumno al = this.getModelObject().getAlumnoSeleccionado();
+		this.getModelObject().setAlumnoSeleccionado(al);
+		this.getModelObject().crearAlumnoParaEditado();
 		Dialog<?> dialog = new EditarDatosWindow(this, this.getModelObject());
 		dialog.open();
 		dialog.onAccept(() -> {
