@@ -12,6 +12,11 @@ import domain.UnModel;
 
 public class MenuPrincipal extends Dialog<SeleccionAlumnoViewModel> {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public MenuPrincipal(WindowOwner owner, SeleccionAlumnoViewModel unaView) {
 		super(owner, unaView);
 	}

@@ -23,7 +23,7 @@ public class AlumnosRepository {
 
 	public static Alumno dameAlumnoConLegajo(String token) {
 		alumnoService = new AlumnoService(token);
-		return alumnoService.getStudent();
+		return alumnoService.getAlumno();
 //		return alumnos.stream().filter(unAlumno -> unAlumno.token == token).findFirst();
 	}
 

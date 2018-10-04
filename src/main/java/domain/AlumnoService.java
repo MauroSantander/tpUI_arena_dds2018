@@ -18,7 +18,7 @@ public class AlumnoService {
 			this.client = Client.create();
 		}
 		
-		public Alumno getStudent(){
+		public Alumno getAlumno(){
 			ClientResponse clientResponse= this.client
 	        .resource(API_NOTITAS)
 	        .path("student")
