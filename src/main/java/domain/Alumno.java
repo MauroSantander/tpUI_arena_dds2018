@@ -12,8 +12,9 @@ public class Alumno {
 	int code; // seguramente cambie
 
 	public Alumno(String unNombre, String unApellido, int unLegajo, String unUsuario) {
-		if (((Integer)unLegajo).toString().length() != 7)
-			throw new LegajoInvalidoException();
+//		if (((Integer)unLegajo).toString().length() != 7)
+//			throw new LegajoInvalidoException();
+//el if de arriba era una validacion para el tamaño del legajo que se ingresa
 		this.first_name = unNombre;
 		this.last_name = unApellido;
 		this.code = unLegajo;

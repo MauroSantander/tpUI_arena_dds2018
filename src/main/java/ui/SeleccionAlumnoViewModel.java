@@ -20,7 +20,7 @@ public class SeleccionAlumnoViewModel {
 	private Alumno alumnoSeleccionado;
 	private Alumno alumnoEditado;
 	private int legajo;
-	private String inputLegajo;
+	private String inputLegajo; //sacar?
 	private List<Calificacion> calificaciones;
 	private String token;
 
@@ -87,4 +87,11 @@ public class SeleccionAlumnoViewModel {
 		alumnoEditado = new Alumno(alumnoSeleccionado.getFirst_name(),alumnoSeleccionado.getLast_name(),alumnoSeleccionado.getCode(),alumnoSeleccionado.getGithub_user());
 	}
 
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}	
 }

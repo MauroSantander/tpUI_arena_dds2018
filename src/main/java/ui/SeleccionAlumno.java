@@ -27,10 +27,10 @@ public class SeleccionAlumno extends MainWindow<SeleccionAlumnoViewModel> {
 		//this.setMinWidth(300);
 		this.setTitle("Lector de Notas");
 
-		new Label(form).setText("Ingrese su nro. de legajo: ");
-		TextBox legajo = new TextBox(form);
-		legajo.withFilter(new LegajoFilter());
-		legajo.bindValueToProperty("inputLegajo");
+		new Label(form).setText("Ingrese su token: ");
+		TextBox token = new TextBox(form);
+		//legajo.withFilter(new LegajoFilter()); //le damos formato de legajo
+		token.bindValueToProperty("token"); //decia inputLegajo
 
 		new Button(form).setCaption("Ingresar").onClick(this::ingresar);
 

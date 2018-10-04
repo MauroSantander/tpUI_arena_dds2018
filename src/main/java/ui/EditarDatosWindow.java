@@ -34,23 +34,21 @@ public class EditarDatosWindow extends Dialog<SeleccionAlumnoViewModel> {
 		form.setLayout(new ColumnLayout(2));
 
 		new Label(form).setText("Apellido:");
-		new TextBox(form).setWidth(250).bindValueToProperty("alumnoEditado.apellido");
+		new TextBox(form).setWidth(250).bindValueToProperty("alumnoEditado.last_name");
 
 		new Label(form).setText("Nombre:");
-		new TextBox(form).setWidth(250).bindValueToProperty("alumnoEditado.nombre");
+		new TextBox(form).setWidth(250).bindValueToProperty("alumnoEditado.first_name");
 
 		new Label(form).setText("Legajo:");
 		NumericField legajo = new NumericField(form);
-		legajo.bindValueToProperty("alumnoEditado.legajo");
+		legajo.bindValueToProperty("alumnoEditado.code");
 
 		new Label(form).setText("Usuario GitHub:");
-		new TextBox(form).setWidth(250).bindValueToProperty("alumnoEditado.usuarioGitHub");
+		new TextBox(form).setWidth(250).bindValueToProperty("alumnoEditado.github_user");
 		
 		new Button(form).setCaption("Guardar").onClick(this::escribirDatos);
 		new Button(form).setCaption("Cancelar").onClick(this::cancel);
 
 	}
 	
-	
-
 }
