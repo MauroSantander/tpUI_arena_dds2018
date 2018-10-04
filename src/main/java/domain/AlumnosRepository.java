@@ -7,6 +7,7 @@ import java.util.Optional;
 public class AlumnosRepository {
 
 	private static List<Alumno> alumnos = new ArrayList<>();
+	private static AlumnoService alumnoService;
 	static AlumnosRepository repo = null;
 
 	public static AlumnosRepository getInstance() {
@@ -20,8 +21,10 @@ public class AlumnosRepository {
 		return alumnos;
 	}
 
-	public static Optional<Alumno> dameAlumnoConLegajo(int unLegajo) {
-		return alumnos.stream().filter(unAlumno -> unAlumno.legajo == unLegajo).findFirst();
+	public static Alumno dameAlumnoConLegajo(String token) {
+		alumnoService = new AlumnoService(token);
+		return alumnoService.getStudent();
+//		return alumnos.stream().filter(unAlumno -> unAlumno.token == token).findFirst();
 	}
 
 	public static void agregar(Alumno unAlumno) {

@@ -22,6 +22,7 @@ public class SeleccionAlumnoViewModel {
 	private int legajo;
 	private String inputLegajo;
 	private List<Calificacion> calificaciones;
+	private String token;
 
 	public String getInputLegajo() {
 		return inputLegajo;
@@ -57,9 +58,14 @@ public class SeleccionAlumnoViewModel {
 	}
 
 	public boolean registrarLegajo() {
-		Optional<Alumno> res = AlumnosRepository.dameAlumnoConLegajo(legajo);
-		res.ifPresent(unAlumno -> this.alumnoSeleccionado = unAlumno);
-		return res.isPresent();
+		Alumno res = AlumnosRepository.dameAlumnoConLegajo(token);
+		if(res != null) {
+			this.alumnoSeleccionado = res;
+			return true;
+		}
+		return false;
+//		res.ifPresent(unAlumno -> this.alumnoSeleccionado = unAlumno);
+//		return res.isPresent();
 	}
 
 	public Alumno getAlumnoEditado() {
@@ -71,14 +77,14 @@ public class SeleccionAlumnoViewModel {
 	}
 
 	public void guardarAlumnoEditado() {
-		alumnoSeleccionado.setLegajo(alumnoEditado.getLegajo());
-		alumnoSeleccionado.setNombre(alumnoEditado.getNombre());
-		alumnoSeleccionado.setApellido(alumnoEditado.getApellido());
-		alumnoSeleccionado.setUsuarioGitHub(alumnoEditado.getUsuarioGitHub());
+		alumnoSeleccionado.setCode(alumnoEditado.getCode());
+		alumnoSeleccionado.setFirst_name(alumnoEditado.getFirst_name());
+		alumnoSeleccionado.setLast_name(alumnoEditado.getLast_name());
+		alumnoSeleccionado.setGithub_user(alumnoEditado.getGithub_user());
 	}
 	
 	public void crearAlumnoParaEditado() {
-		alumnoEditado = new Alumno(alumnoSeleccionado.getNombre(),alumnoSeleccionado.getApellido(),alumnoSeleccionado.getLegajo(),alumnoSeleccionado.getUsuarioGitHub());
+		alumnoEditado = new Alumno(alumnoSeleccionado.getFirst_name(),alumnoSeleccionado.getLast_name(),alumnoSeleccionado.getCode(),alumnoSeleccionado.getGithub_user());
 	}
 
 }

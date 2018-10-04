@@ -6,50 +6,53 @@ import org.uqbar.commons.model.annotations.Observable;
 
 public class Alumno {
 
-	String nombre;
-	String apellido;
-	String usuarioGitHub;
-	int legajo; // seguramente cambie
+	String first_name;
+	String last_name;
+	String github_user;
+	int code; // seguramente cambie
 
 	public Alumno(String unNombre, String unApellido, int unLegajo, String unUsuario) {
 		if (((Integer)unLegajo).toString().length() != 7)
 			throw new LegajoInvalidoException();
-		this.nombre = unNombre;
-		this.apellido = unApellido;
-		this.legajo = unLegajo;
-		this.usuarioGitHub = unUsuario;
+		this.first_name = unNombre;
+		this.last_name = unApellido;
+		this.code = unLegajo;
+		this.github_user = unUsuario;
+	}
+	public Alumno() {
+		
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getFirst_name() {
+		return first_name;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setFirst_name(String nombre) {
+		this.first_name = nombre;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getLast_name() {
+		return last_name;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setLast_name(String apellido) {
+		this.last_name = apellido;
 	}
 
-	public String getUsuarioGitHub() {
-		return usuarioGitHub;
+	public String getGithub_user() {
+		return github_user;
 	}
 
-	public void setUsuarioGitHub(String usuarioGitHub) {
-		this.usuarioGitHub = usuarioGitHub;
+	public void setGithub_user(String usuarioGitHub) {
+		this.github_user = usuarioGitHub;
 	}
 
-	public int getLegajo() {
-		return legajo;
+	public int getCode() {
+		return code;
 	}
 
-	public void setLegajo(int legajo) {
-		this.legajo = legajo;
+	public void setCode(int legajo) {
+		this.code = legajo;
 	}
 
 }
