@@ -81,6 +81,7 @@ public class SeleccionAlumnoViewModel {
 		alumnoSeleccionado.setFirst_name(alumnoEditado.getFirst_name());
 		alumnoSeleccionado.setLast_name(alumnoEditado.getLast_name());
 		alumnoSeleccionado.setGithub_user(alumnoEditado.getGithub_user());
+		AlumnosRepository.getInstance().getAlumnoService().saveAlumno(alumnoSeleccionado);
 	}
 	
 	public void crearAlumnoParaEditado() {

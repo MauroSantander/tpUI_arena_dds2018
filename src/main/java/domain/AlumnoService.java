@@ -1,10 +1,16 @@
 package domain;
 
+import java.util.List;
+
+import javax.swing.text.html.parser.Entity;
+import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.GenericType;
+import com.sun.research.ws.wadl.Response;
 
 public class AlumnoService {
     private static final String API_NOTITAS = "http://notitas.herokuapp.com";
@@ -34,6 +40,21 @@ public class AlumnoService {
 		return new Alumno();
 	}
 	
-	
+	public void saveAlumno(Alumno unAlumno) {
+		
+		String alumnoString = new Gson().toJson(unAlumno);
+		System.out.println(alumnoString);
+		
+		ClientResponse response = this.client
+		        .resource(API_NOTITAS)
+		        .path("student")
+		        .header("Authorization", "Bearer " + this.bearerToken)
+		        .accept(MediaType.APPLICATION_JSON)
+		        .put(ClientResponse.class, new Gson().toJson(unAlumno));
+		
+		
+		System.out.println("El codigo es: ");
+		System.out.println(response.getStatus());
+	}
 
 }

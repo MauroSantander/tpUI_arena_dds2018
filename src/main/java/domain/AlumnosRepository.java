@@ -17,6 +17,10 @@ public class AlumnosRepository {
 		return repo;
 	}
 
+	public AlumnoService getAlumnoService() {
+		return alumnoService;
+	}
+
 	public static List<Alumno> all() {
 		return alumnos;
 	}
