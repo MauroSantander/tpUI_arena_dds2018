@@ -63,7 +63,7 @@ public class AlumnoService {
 	public Tarea[] getNotas() {
 		ClientResponse clientResponse= this.client
 		        .resource(API_NOTITAS)
-		        .path("assignments")
+		        .path("student/assignments")
 		        .header("Authorization", "Bearer " + this.bearerToken)
 		        .accept(MediaType.APPLICATION_JSON)
 		        .get(ClientResponse.class);
