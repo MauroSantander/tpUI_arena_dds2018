@@ -21,7 +21,7 @@ public class SeleccionAlumnoViewModel {
 	private Alumno alumnoEditado;
 	private int legajo;
 	private String inputLegajo; //sacar?
-	private List<Tarea> tareas;
+	private Tarea[] tareas;
 	private String token;
 	private String title;
 
@@ -60,8 +60,10 @@ public class SeleccionAlumnoViewModel {
 
 	public boolean registrarLegajo() {
 		Alumno res = AlumnosRepository.dameAlumnoConLegajo(token);
+		Tarea[] tareas = TareasRepository.dameTareasDe(token);
 		if(res != null) {
 			this.alumnoSeleccionado = res;
+			this.tareas = tareas;
 			return true;
 		}
 		return false;
@@ -97,7 +99,7 @@ public class SeleccionAlumnoViewModel {
 		this.token = token;
 	}
 
-	public List<Tarea> getTareas() {
+	public Tarea[] getTareas() {
 		return tareas;
 	}
 

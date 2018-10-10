@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 public class TareasRepository {
 	private static List<Tarea> tareas = new ArrayList<Tarea>();
 	static TareasRepository repo = null;
+	private static AlumnoService alumnoService;
 
 	public static TareasRepository getInstance() {
 		if (repo != null)
@@ -17,6 +18,11 @@ public class TareasRepository {
 
 	public static List<Tarea> all() {
 		return tareas;
+	}
+	
+	public static Tarea[] dameTareasDe(String token) {
+		alumnoService = new AlumnoService(token);
+		return alumnoService.getNotas();
 	}
 
 //	public List<Calificacion> calificacionesDeAlumno(Alumno alumnoABuscar) {
