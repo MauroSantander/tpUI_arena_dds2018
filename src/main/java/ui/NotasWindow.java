@@ -27,22 +27,21 @@ public class NotasWindow extends Dialog<SeleccionAlumnoViewModel> {
 		// this.setMinWidth(400); comentado para que el tamaño de la ventana se ajuste a
 		// la cantidad de columnas
 
-		Table<Calificacion> notas = new Table<Calificacion>(pantallaNotas, Calificacion.class); // ver como darle el
-																								// tamaño adecuado
+		Table<Tarea> notas = new Table<Tarea>(pantallaNotas, Tarea.class); 
 
-		Column<Calificacion> columnaTipo = new Column<Calificacion>(notas);
+		Column<Tarea> columnaTipo = new Column<Tarea>(notas);
 		columnaTipo.setTitle("Tarea");
 		columnaTipo.setFixedSize(200);
-		columnaTipo.bindContentsToProperty("tarea");
+		columnaTipo.bindContentsToProperty("title");
 
-		Column<Calificacion> columnaNota = new Column<Calificacion>(notas);
+		Column<Tarea> columnaNota = new Column<Tarea>(notas);
 		columnaNota.setTitle("Nota");
 		columnaNota.setFixedSize(200);
-		columnaNota.bindContentsToProperty("nota");
+		columnaNota.bindContentsToProperty("grades.value");
 
 		new Button(pantallaNotas).setCaption("Salir").onClick(this::close);
 
-		notas.bindItemsToProperty("calificaciones");
+		notas.bindItemsToProperty("tareas");
 	}
 
 }

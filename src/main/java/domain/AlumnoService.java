@@ -1,5 +1,6 @@
 package domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.text.html.parser.Entity;
@@ -11,6 +12,8 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.research.ws.wadl.Response;
+
+import Notas.Nota;
 
 public class AlumnoService {
     private static final String API_NOTITAS = "http://notitas.herokuapp.com";
@@ -55,6 +58,26 @@ public class AlumnoService {
 		
 		System.out.println("El codigo es: ");
 		System.out.println(response.getStatus());
+	}
+	
+	public Tarea[] getNotas() {
+		ClientResponse clientResponse= this.client
+		        .resource(API_NOTITAS)
+		        .path("assignments")
+		        .header("Authorization", "Bearer " + this.bearerToken)
+		        .accept(MediaType.APPLICATION_JSON)
+		        .get(ClientResponse.class);
+				
+				if(clientResponse.getStatus()==200){
+					clientResponse.bufferEntity();
+					String jsonString = clientResponse.getEntity(String.class);
+					
+					Tarea[] unaTarea = new Gson().fromJson(jsonString, Tarea[].class);
+					return unaTarea;
+				}
+
+				Tarea[] unaLista = null;
+				return unaLista; 
 	}
 
 }

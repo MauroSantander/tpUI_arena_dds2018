@@ -9,6 +9,6 @@ public class TareaConceptual extends Tarea{
 		super(nombre);
 	}
 	public void Calificar(Alumno alumno, NotaConceptual nota) {
-		calificaciones.add(new Calificacion(alumno, nota, this));
+		getGrades().add(new Calificacion(nota));
 	}
 }

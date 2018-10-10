@@ -21,8 +21,9 @@ public class SeleccionAlumnoViewModel {
 	private Alumno alumnoEditado;
 	private int legajo;
 	private String inputLegajo; //sacar?
-	private List<Calificacion> calificaciones;
+	private List<Tarea> tareas;
 	private String token;
+	private String title;
 
 	public String getInputLegajo() {
 		return inputLegajo;
@@ -37,9 +38,9 @@ public class SeleccionAlumnoViewModel {
 
 	}
 
-	public List<Calificacion> getCalificaciones() {
-		return TareasRepository.getInstance().calificacionesDeAlumno(alumnoSeleccionado);
-	}
+//	public List<Calificacion> getCalificaciones() {
+//		return TareasRepository.getInstance().calificacionesDeAlumno(alumnoSeleccionado);
+//	}
 
 	public SeleccionAlumnoViewModel() {
 		this.alumnos = AlumnosRepository.all();
@@ -94,5 +95,17 @@ public class SeleccionAlumnoViewModel {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public List<Tarea> getTareas() {
+		return tareas;
+	}
+
+	public String getTitle() {
+		return title;
 	}	
+	
+	
+	
+	
 }

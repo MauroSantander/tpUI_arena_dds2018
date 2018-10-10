@@ -1,28 +1,42 @@
 package domain;
 
+import java.util.Date;
+
 import org.uqbar.commons.model.annotations.Observable;
 
 import Notas.Nota;
 
 @Observable
 public class Calificacion {
-	public Alumno alumno;
-	public Nota nota;
-	private Tarea tarea;
 	
-	public Calificacion(Alumno alumno, Nota nota, Tarea t) {
-		this.alumno = alumno;
-		this.nota = nota;
-		tarea= t;
+	private int id;
+	private Nota value;
+	private Date created_at;
+	private Date updated_at;
+	
+	public Calificacion(){
 	}
-	public boolean de(Alumno alumnoABuscar) {
-		// TODO Auto-generated method stub
-		return alumnoABuscar == alumno;
+	
+	public Calificacion(Nota unaNota) {
+		this.value = unaNota;
 	}
-	public String getTarea() {
-		return tarea.nombre;
+	
+	public String getValue() {
+		return value.toString();
 	}
-	public String getNota() {
-		return nota.toString();
+
+	public int getId() {
+		return id;
 	}
+
+	public Date getCreated_at() {
+		return created_at;
+	}
+
+	public Date getUpdated_at() {
+		return updated_at;
+	}
+	
+	
+	
 }

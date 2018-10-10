@@ -4,11 +4,33 @@ import java.util.LinkedList;
 import java.util.List;
 import org.uqbar.commons.model.annotations.Observable;
 
+@Observable
 public class Tarea {
-	public String nombre; // Ej "Primer Parcial", "TP Arena"
-	public List<Calificacion> calificaciones = new LinkedList<Calificacion>();
+	
+	private int id;
+	private String title; // Ej "Primer Parcial", "TP Arena"
+	private String description;
+	private List<Calificacion> grades = new LinkedList<Calificacion>();
 
-	public Tarea(String nombre) {
-		this.nombre = nombre;
+	public Tarea(String unTitulo) {
+		this.title = unTitulo;
 	}
+
+	public Tarea() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public List<Calificacion> getGrades() {
+		return grades;
+	}
+
+	public void setGrades(List<Calificacion> grades) {
+		this.grades = grades;
+	}
+	
+	
 }

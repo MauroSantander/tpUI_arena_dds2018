@@ -11,6 +11,6 @@ public class TareaNumerica extends Tarea{
 		super(nombre);
 	}
 	public void Calificar(Alumno alumno, NotaNumerica nota) {
-		calificaciones.add(new Calificacion(alumno, nota, this));
+		getGrades().add(new Calificacion(nota));
 	}
 }
