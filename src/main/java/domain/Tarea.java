@@ -10,6 +10,7 @@ public class Tarea {
 	private int id;
 	private String title; // Ej "Primer Parcial", "TP Arena"
 	private String description;
+	private String value;
 	private List<Calificacion> grades;
 
 	public Tarea(String unTitulo) {
@@ -43,6 +44,16 @@ public class Tarea {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+	
+	
 	
 	
 }

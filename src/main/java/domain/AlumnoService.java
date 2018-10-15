@@ -104,11 +104,14 @@ public class AlumnoService {
 			            	c.setId(g.getAsJsonObject().get("id").getAsInt());
 			            	c.setValue(g.getAsJsonObject().get("value").getAsString());
 			                listCalificaciones.add(c);
+			                t.setTitle((sObj.get("title").getAsString() + " - " + c.getId()));
+			                t.setValue(c.getValue());
+			                tareas.add(t);
 			            }
 			            
 			            t.setGrades(listCalificaciones);
 			            
-			            tareas.add(t);
+//			            tareas.add(t);
 			            
 			           
 			            
