@@ -1,9 +1,9 @@
 package domain;
 
-import Notas.Nota;
+import Notas.String;
 import Notas.NotaConceptual;
 
-public class Conceptual implements Nota {
+public class Conceptual implements String {
 	NotaConceptual nota;
 
 	public Conceptual(NotaConceptual nota) {

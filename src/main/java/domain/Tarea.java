@@ -10,7 +10,7 @@ public class Tarea {
 	private int id;
 	private String title; // Ej "Primer Parcial", "TP Arena"
 	private String description;
-	private List<Calificacion> grades = new LinkedList<Calificacion>();
+	private List<Calificacion> grades;
 
 	public Tarea(String unTitulo) {
 		this.title = unTitulo;
@@ -30,6 +30,18 @@ public class Tarea {
 
 	public void setGrades(List<Calificacion> grades) {
 		this.grades = grades;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	

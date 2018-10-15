@@ -2,7 +2,7 @@ package Notas;
 
 import domain.RangoInvalidoDeNotaException;
 
-public class NotaNumerica implements Nota {
+public class NotaNumerica implements String {
 	Integer nota;
 	static int MAX = 10;
 	static int MIN = 1;

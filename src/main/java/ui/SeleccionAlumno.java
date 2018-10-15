@@ -39,7 +39,7 @@ public class SeleccionAlumno extends MainWindow<SeleccionAlumnoViewModel> {
 	}
 
 	public static void main(String[] args) {
-		Fixture.initialize();
+//		Fixture.initialize();
 		new SeleccionAlumno().startApplication();
 	}
 

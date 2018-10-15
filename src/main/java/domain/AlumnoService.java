@@ -7,13 +7,18 @@ import javax.swing.text.html.parser.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.core.MediaType;
 
+import org.json4s.JsonAST.JArray;
+
+
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.research.ws.wadl.Response;
-
-import Notas.Nota;
 
 public class AlumnoService {
     private static final String API_NOTITAS = "http://notitas.herokuapp.com";
@@ -60,7 +65,7 @@ public class AlumnoService {
 		System.out.println(response.getStatus());
 	}
 	
-	public Tarea[] getNotas() {
+	public List<Tarea> getNotas() {
 		ClientResponse clientResponse= this.client
 		        .resource(API_NOTITAS)
 		        .path("student/assignments")
@@ -71,13 +76,57 @@ public class AlumnoService {
 				if(clientResponse.getStatus()==200){
 					clientResponse.bufferEntity();
 					String jsonString = clientResponse.getEntity(String.class);
+					JsonParser parser = new JsonParser();
 					
-					Tarea[] unaTarea = new Gson().fromJson(jsonString, Tarea[].class);
-					return unaTarea;
-				}
+//					JsonArray gsonArr = parser.parse(jsonString).getAsJsonArray();
+					
+					JsonObject jsonObject = new JsonParser().parse(jsonString).getAsJsonObject();
+					JsonArray tareasArray = jsonObject.getAsJsonArray("assignments");
+					
+					List<Tarea> tareas = new ArrayList<Tarea>();
+					
+					for (JsonElement s : tareasArray) {
+						
+						Tarea t = new Tarea();
+						
 
-				Tarea[] unaLista = null;
-				return unaLista; 
+			            // Object of array
+			            JsonObject sObj = s.getAsJsonObject();
+			            t.setId(sObj.get("id").getAsInt());
+			            t.setTitle(sObj.get("title").getAsString());
+			            t.setDescription(sObj.get("description").getAsString());
+
+			            // List of primitive elements
+			            JsonArray grades = sObj.get("grades").getAsJsonArray();
+			            List<Calificacion> listCalificaciones = new ArrayList<Calificacion>();
+			            for (JsonElement g : grades) {
+			            	Calificacion c = new Calificacion();
+			            	c.setId(g.getAsJsonObject().get("id").getAsInt());
+			            	c.setValue(g.getAsJsonObject().get("value").getAsString());
+			                listCalificaciones.add(c);
+			            }
+			            
+			            t.setGrades(listCalificaciones);
+			            
+			            tareas.add(t);
+			            
+			           
+			            
+
+			            // Object Constructor
+//			            FootballPlayer iniesta = new FootballPlayer(dorsal, name,
+//			                    listDemarcation, team);
+//			            System.out.println(iniesta);
+			        }
+					
+					return tareas;
+
+				}
+				
+				return new ArrayList<Tarea>();
+
+//				Tarea[] unaLista = null;
+//				return  List<Tarea> unaLista; 
 	}
 
 }

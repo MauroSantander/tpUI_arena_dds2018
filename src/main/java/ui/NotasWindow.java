@@ -37,7 +37,7 @@ public class NotasWindow extends Dialog<SeleccionAlumnoViewModel> {
 		Column<Tarea> columnaNota = new Column<Tarea>(notas);
 		columnaNota.setTitle("Nota");
 		columnaNota.setFixedSize(200);
-		columnaNota.bindContentsToProperty("grades.value");
+		columnaNota.bindContentsToProperty("grades.get(0).value");
 
 		new Button(pantallaNotas).setCaption("Salir").onClick(this::close);
 

@@ -20,7 +20,7 @@ public class TareasRepository {
 		return tareas;
 	}
 	
-	public static Tarea[] dameTareasDe(String token) {
+	public static List<Tarea> dameTareasDe(String token) {
 		alumnoService = new AlumnoService(token);
 		return alumnoService.getNotas();
 	}
