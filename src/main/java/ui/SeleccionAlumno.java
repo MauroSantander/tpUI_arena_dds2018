@@ -44,11 +44,11 @@ public class SeleccionAlumno extends MainWindow<SeleccionAlumnoViewModel> {
 	}
 
 	public void ingresar() {
-		boolean registrado = this.getModelObject().registrarLegajo();
+		boolean registrado = this.getModelObject().registrarToken();
 		if(registrado)
 			this.abrirMenu();
 		else
-			new ErrorDialog(this, this.getModelObject(), "Legajo incorrecto").open();
+			new ErrorDialog(this, this.getModelObject(), "Token incorrecto").open();
 	}
 
 	public void abrirMenu() {

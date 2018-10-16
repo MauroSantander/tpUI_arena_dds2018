@@ -78,8 +78,6 @@ public class AlumnoService {
 					String jsonString = clientResponse.getEntity(String.class);
 					JsonParser parser = new JsonParser();
 					
-//					JsonArray gsonArr = parser.parse(jsonString).getAsJsonArray();
-					
 					JsonObject jsonObject = new JsonParser().parse(jsonString).getAsJsonObject();
 					JsonArray tareasArray = jsonObject.getAsJsonArray("assignments");
 					
@@ -89,14 +87,11 @@ public class AlumnoService {
 						
 						Tarea t = new Tarea();
 						
-
-			            // Object of array
 			            JsonObject sObj = s.getAsJsonObject();
 			            t.setId(sObj.get("id").getAsInt());
 			            t.setTitle(sObj.get("title").getAsString());
 			            t.setDescription(sObj.get("description").getAsString());
 
-			            // List of primitive elements
 			            JsonArray grades = sObj.get("grades").getAsJsonArray();
 			            List<Calificacion> listCalificaciones = new ArrayList<Calificacion>();
 			            for (JsonElement g : grades) {
@@ -110,26 +105,13 @@ public class AlumnoService {
 			            }
 			            
 			            t.setGrades(listCalificaciones);
-			            
-//			            tareas.add(t);
-			            
-			           
-			            
 
-			            // Object Constructor
-//			            FootballPlayer iniesta = new FootballPlayer(dorsal, name,
-//			                    listDemarcation, team);
-//			            System.out.println(iniesta);
 			        }
 					
 					return tareas;
 
 				}
-				
 				return new ArrayList<Tarea>();
-
-//				Tarea[] unaLista = null;
-//				return  List<Tarea> unaLista; 
 	}
 
 }

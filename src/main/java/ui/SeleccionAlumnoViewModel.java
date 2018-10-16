@@ -58,7 +58,7 @@ public class SeleccionAlumnoViewModel {
 		return alumnos;
 	}
 
-	public boolean registrarLegajo() {
+	public boolean registrarToken() {
 		Alumno res = AlumnosRepository.dameAlumnoConLegajo(token);
 		List<Tarea> tareas = TareasRepository.dameTareasDe(token);
 		if(res != null) {

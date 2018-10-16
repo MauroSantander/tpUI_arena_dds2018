@@ -23,10 +23,6 @@ public class NotasWindow extends Dialog<SeleccionAlumnoViewModel> {
 
 		this.setTitle("Notas");
 
-		// this.setMinHeight(400);
-		// this.setMinWidth(400); comentado para que el tamaño de la ventana se ajuste a
-		// la cantidad de columnas
-
 		Table<Tarea> notas = new Table<Tarea>(pantallaNotas, Tarea.class); 
 
 		Column<Tarea> columnaTipo = new Column<Tarea>(notas);
