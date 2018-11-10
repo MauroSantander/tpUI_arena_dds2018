@@ -9,7 +9,8 @@ import javax.ws.rs.core.MediaType;
 
 import org.json4s.JsonAST.JArray;
 
-
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -21,13 +22,24 @@ import com.sun.jersey.api.client.GenericType;
 import com.sun.research.ws.wadl.Response;
 
 public class AlumnoService {
-    private static final String API_NOTITAS = "http://notitas.herokuapp.com";
+    private static final String API_NOTITAS = "http://localhost:9000";
     private Client client;
-	private String bearerToken;
+	private String bearerToken =  this.generarToken();
+	
+	
+	public String generarToken() {
+		String secret = "god";
+		Algorithm algorithm = Algorithm.HMAC256(secret);
+		String token = JWT.create()
+		    .withClaim("user", 1)
+		    .sign(algorithm);
+		
+		return token;
+	}
 	
 	
 	public AlumnoService(String bearerToken){
-		this.bearerToken = bearerToken;
+		//this.bearerToken = bearerToken;
 		this.client = Client.create();
 	}
 	
