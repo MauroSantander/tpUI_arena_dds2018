@@ -6,9 +6,9 @@ public class Router {
 	
 	public static void configure() {
 	
-	Spark.get("/students", Controller::getAlumno);
-	Spark.post("/students", Controller::updateAlumno);
-	Spark.get("/students/assignmets", Controller::getNotas);
+	Spark.get("/student", Controller::getAlumno);
+	Spark.post("/student", Controller::updateAlumno);
+	Spark.get("/student/assignmets", Controller::getNotas);
 	
 	}
 }
