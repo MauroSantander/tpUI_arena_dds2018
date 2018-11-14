@@ -28,7 +28,7 @@ public class Controller {
 		Inicializador.alumno.addProperty("github_user", github_user);		
 		Inicializador.alumno.addProperty("code", code);
 		
-		return "UN STRING PORQUE SINO ROMPE";
+		return Inicializador.alumno.toString();
 	}
 	
 	public static String getNotas(Request req, Response res) {
