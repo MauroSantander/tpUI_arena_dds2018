@@ -9,7 +9,7 @@ import spark.Response;
 public class Controller {
 	
 	public static String getAlumno(Request req, Response res) {
-		return Inicializador.alumno.getAsString();
+		return Inicializador.alumno.toString();
 	}
 	
 	public static String updateAlumno(Request req, Response res) {
@@ -32,7 +32,7 @@ public class Controller {
 	}
 	
 	public static String getNotas(Request req, Response res) {
-		return Inicializador.tareas.getAsString();
+		return Inicializador.tareas.toString();
 	}
 
 }
