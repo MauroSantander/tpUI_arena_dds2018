@@ -8,31 +8,25 @@ import spark.Response;
 
 public class Controller {
 	
+	static Service service = new Service();
+	
 	public static String getAlumno(Request req, Response res) {
-		return Inicializador.alumno.toString();
+		return service.getAlumno().toString();
 	}
 	
 	public static String updateAlumno(Request req, Response res) {
 		
 		JsonObject alumnoModificado = new JsonObject();
-		
+
 		alumnoModificado = new JsonParser().parse(req.body()).getAsJsonObject();
+
+		JsonObject response = service.actualizarAlumno(alumnoModificado);
 		
-		String first_name = alumnoModificado.get("first_name").toString();
-		String last_name = alumnoModificado.get("last_name").toString();
-		String github_user = alumnoModificado.get("github_user").toString();
-		String code = alumnoModificado.get("code").toString();
-		
-		Inicializador.alumno.addProperty("first_name", first_name);
-		Inicializador.alumno.addProperty("last_name", last_name);
-		Inicializador.alumno.addProperty("github_user", github_user);		
-		Inicializador.alumno.addProperty("code", code);
-		
-		return Inicializador.alumno.toString();
+		return response.toString();
 	}
 	
 	public static String getNotas(Request req, Response res) {
-		return Inicializador.tareas.toString();
+		return service.getTareas().toString();
 	}
 
 }

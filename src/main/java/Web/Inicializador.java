@@ -68,5 +68,15 @@ public class Inicializador {
 		tareas.add("assignments", tareasArray);
 		
 	}
+	
+	public static JsonObject getAlumno() {
+		return alumno;
+	}
+
+
+	public static JsonObject getTareas() {
+		return tareas;
+	}
+
 
 }
